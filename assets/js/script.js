@@ -7,13 +7,17 @@ let today = dayjs();
 $(function () {
     hourEl.on('click', 'button', event =>{
       let buttonClicked = $(event.target);
-      console.log(buttonClicked.parent().attr('id'))
+
+      //save item to local storage, key is the name of the time slot, value is the text entered in the time slot
+      localStorage.setItem(buttonClicked.parent().attr('id'), buttonClicked.siblings(".description").val());
+
   })
 
   hourEl.each( function() {
     elementHour = $(this).attr('id').split("-")[1]; //variable that has the element's hour number
     currentHour = today.format('HH'); //variable that has the current hour number
 
+    //if statement that adds the class to the time slot depending on what time of day it is
     if(currentHour == elementHour){
       $(this).addClass("present");
       console.log(currentHour + " and " + elementHour);
