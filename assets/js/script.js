@@ -18,7 +18,6 @@ $(function () {
     //if statement that adds the class to the time slot depending on what time of day it is
     if(currentHour == elementHour){
       $(this).addClass("present");
-      console.log(currentHour + " and " + elementHour);
     } else if(currentHour > elementHour){
       $(this).addClass("past");
     } else if(currentHour < elementHour){
